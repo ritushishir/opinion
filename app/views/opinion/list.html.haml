@@ -1,0 +1,9 @@
+.middle-box
+  .sub-header
+    Words of Wisdom
+    = will_paginate @criticisms
+  - if @criticisms.empty?
+    No opinions yet!
+  - else
+    - @criticisms.each do |c|
+      = render 'criticism', :criticism => c

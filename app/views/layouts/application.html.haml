@@ -1,0 +1,24 @@
+!!!5
+%html{:lang => 'en'}
+  %head
+    %meta{:charset => "utf-8"}
+    = csrf_meta_tag
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    %title= yield(:title) || "Admin Page"
+  %body
+    .upper
+      .left
+        = link_to "Yell", root_url, :style => 'text-decoration:none;'
+      .right
+        - if current_critique_receiver
+          = link_to current_critique_receiver.get_full_name, opinion_list_path, :style => 'text-decoration:none;'
+          = link_to "Sign Out", destroy_critique_receiver_session_path, :method => :delete, :title =>"Log Out"
+        - else
+          = link_to 'Add me ', new_critique_receiver_registration_path
+
+    - if flash[:notice]
+      .notice
+        = flash[:notice]
+    = yield
+    .upper
