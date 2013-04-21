@@ -7,6 +7,9 @@ class Criticism < ActiveRecord::Base
   validates :critique_receiver, :presence =>{:message =>'You should specify the target person!'}
   validates :comment, :presence =>{:message =>"Please give your opinion!"}
 
-  PER_PAGE = 20
+  PER_PAGE = 10
 
+  def to_s
+    comment
+  end
 end

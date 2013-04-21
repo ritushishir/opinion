@@ -20,7 +20,6 @@ class OpinionController < ApplicationController
     if current_critique_receiver
       page = params[:page] || 1
       @criticisms = current_critique_receiver.criticisms.paginate(:per_page =>Criticism::PER_PAGE, :page =>page)
-      # @criticisms = current_critique_receiver.criticisms
     else
       redirect_to root_url
     end
