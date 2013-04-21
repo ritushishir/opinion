@@ -47,8 +47,8 @@
           <a class="brand" href="/">SHOUT</a>
           <ul style="float:right;list-style:none;padding:0;margin:0;">
             <% if current_critique_receiver %>
-              <li style="float:left;display: block;min-width: 60px;line-height:38px;padding-right:5px;">
-                <%= link_to current_critique_receiver.get_full_name, opinion_list_path %></li>
+              <li style="float:left;display: block;min-width: 60px;line-height:38px;padding-right:10px;">
+                <%= current_critique_receiver.get_full_name %></li>
               <li style="float:left;line-height:30px;">
               <%= link_to "Sign Out", sign_out_path, :class => 'btn btn-small btn-primary', :method => :delete, :title =>"Log Out"%></li>
             <% else %>
