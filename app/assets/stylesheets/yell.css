@@ -47,19 +47,15 @@ table .btn {
   width: 90%;
 }
 .middle-box{
-  border: 1px grey solid;
+  padding:0 15px;
+  border: 1px solid #ccc;
   width: 80%;
-  margin: 50px 100px 100px 150px;
-  height: 600px;
-  padding: 5px;
+  clear: both;
+  border-radius: 10px;
+  margin-top:75px;
+  margin-bottom: 50px;
 }
-.note{
-  border: 0px dotted grey;
-  padding: 3px;
-  background-color: white;
-  font-size: 17px;
-  font-family: 'Comic-Sans';
-}
+
 .criticism{
   border: 0px solid grey;
   padding:2px;
@@ -71,8 +67,32 @@ table .btn {
   background-color: red;
   padding: 5px;
 }
+
+#criticism_comment{
+  max-height: 150px;
+  width: 545px;
+}
+
+#critique_receiver_remember_me{
+  float:left;
+}
 #error_explanation{
   background-color: red;
+  padding:0 5px 0 10px;
+}
+
+#error_explanation h2{
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+  padding-top: 5px;
+}
+
+#error_explanation ul{
+  font-size: 12px;
+  margin: 0;
+  padding: 0 0 5px 20px;
 }
 select{
   width: 600px;

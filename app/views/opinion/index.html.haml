@@ -1,34 +1,28 @@
 - ems = @criticism.errors.messages
 .middle-box
-  .sub-header
-    Words of Wisdom
-  = form_for @criticism do |f|
-    %table
-      %tr
-        %td
-          .note
-            Feel like criticizing someone? Listed below are few crazy people who built this app so that you guys can criticize them.  We are doing this as an experiment for our character meeting topic “CRITICISM”. So go ahead and feel free to criticize! Please do mind your language
-            = image_tag('biggrin.gif')
-      %tr{:style =>'height:80px;'}
-        %td
-          %span{:style =>'font-size:16px;'}
-            Person
-          - if ems[:critique_receiver]
-            %span{:style =>'color:red;'}
-              = ems[:critique_receiver].first.to_s
-          %br
-          = collection_select(:criticism, :critique_receiver_id, @receivers, :id, :name_with_email_and_department, :prompt => true)
+  = form_for @criticism , :html => {:class => "form-horizontal"} do |f|
+    %h4 Word of Wisdom
+    %span
+      Feel like criticizing someone? Listed below are few crazy people who built this app so that you guys can criticize them.  We are doing this as an experiment for our character meeting topic “CRITICISM”. So go ahead and feel free to criticize! Please do mind your language
+      = image_tag('biggrin.gif')
+      <br />
+      <br />
 
-      %tr
-        %td
-          %span{:style =>'font-size:16px;'}
-            Criticism/Opinion
-          - if ems[:comment]
-            %span{:style =>'color:red;'}
-              = ems[:comment].first.to_s
-          %br
-          = f.text_area(:comment)
+      %label 
+        Person
+      - if ems[:critique_receiver]
+        %span{:style =>'color:red;'}
+          = ems[:critique_receiver].first.to_s
+      = collection_select(:criticism, :critique_receiver_id, @receivers, :id, :name_with_email_and_department, {:prompt => true}, {:class => "span7"})
+      %br
+      %br
 
-      %tr
-        %td
-          = f.submit 'Submit'
+      %label
+        Criticism/Opinion
+      - if ems[:comment]
+        %span{:style =>'color:red;'}
+          = ems[:comment].first.to_s
+      = f.text_area(:comment)
+      %br
+      %br
+      = f.submit 'Submit', :class => "btn btn-primary"

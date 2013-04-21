@@ -1,0 +1,60 @@
+<%- model_class = CritiqueReceiver -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:encrypted_password) %></th>
+      <th><%= model_class.human_attribute_name(:reset_password_token) %></th>
+      <th><%= model_class.human_attribute_name(:reset_password_sent_at) %></th>
+      <th><%= model_class.human_attribute_name(:remember_created_at) %></th>
+      <th><%= model_class.human_attribute_name(:current_sign_in_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_sign_in_at) %></th>
+      <th><%= model_class.human_attribute_name(:current_sign_in_ip) %></th>
+      <th><%= model_class.human_attribute_name(:last_sign_in_ip) %></th>
+      <th><%= model_class.human_attribute_name(:full_name) %></th>
+      <th><%= model_class.human_attribute_name(:department) %></th>
+      <th><%= model_class.human_attribute_name(:is_admin) %></th>
+      <th><%= model_class.human_attribute_name(:disabled) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @critique_receivers.each do |critique_receiver| %>
+      <tr>
+        <td><%= link_to critique_receiver.id, critique_receiver_path(critique_receiver) %></td>
+        <td><%= critique_receiver.email %></td>
+        <td><%= critique_receiver.encrypted_password %></td>
+        <td><%= critique_receiver.reset_password_token %></td>
+        <td><%= critique_receiver.reset_password_sent_at %></td>
+        <td><%= critique_receiver.remember_created_at %></td>
+        <td><%= critique_receiver.current_sign_in_at %></td>
+        <td><%= critique_receiver.last_sign_in_at %></td>
+        <td><%= critique_receiver.current_sign_in_ip %></td>
+        <td><%= critique_receiver.last_sign_in_ip %></td>
+        <td><%= critique_receiver.full_name %></td>
+        <td><%= critique_receiver.department %></td>
+        <td><%= critique_receiver.is_admin %></td>
+        <td><%= critique_receiver.disabled %></td>
+        <td><%=l critique_receiver.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_critique_receiver_path(critique_receiver), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      critique_receiver_path(critique_receiver),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_critique_receiver_path,
+            :class => 'btn btn-primary' %>
