@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'haml'
 gem 'devise',           '>= 2.0.0'
 gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
