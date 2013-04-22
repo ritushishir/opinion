@@ -1,9 +1,25 @@
-.middle-box
-  .sub-header
-    Words of Wisdom
-    = will_paginate @criticisms
+%div{:style => "clear:both;margin-top:50px;"}
   - if @criticisms.empty?
-    No opinions yet!
+    %div{:style => "margin-top:75px;margin-bottom:50px;"}
+      %h4
+        Awful, no criticizm.
+      %p 
+        It's a lot more fun being a critic than being the one criticized. Everyone gets criticized. If you are not criticized, you may not be doing much.
+      %p
+        = link_to "Shout Out", opinion_index_path, :class => "btn btn-large btn-danger"
   - else
-    - @criticisms.each do |c|
-      = render 'criticism', :criticism => c
+    %table{:class => "table table-striped span7"} 
+      %thead
+        %tr
+          %td
+            %h4{:style => "float:left"} Words of Wisdom
+            %i{:class => "icon-comment", :style=> "float:left;"}
+            = link_to "Shout Out", opinion_index_path, :class => 'btn btn-small btn-danger', :method => :delete, :title =>"Be the Critic, write words of wisdom", :style => "float:right"
+      - @criticisms.each do |c|
+        %tr
+          %td
+            = c
+  = will_paginate @criticisms, :renderer => BootstrapPagination::Rails
+
+
+

@@ -3,7 +3,12 @@ Opinion::Application.routes.draw do
   get "critique_receivers/new"
 
   devise_for :critique_receivers, :path_names => { :sign_up => 'add_me', :sign_in =>'login', :sign_out =>'logout' }
-
+  
+  devise_scope :critique_receiver do
+    get "sign_out", :to => "devise/sessions#destroy"
+    get "sign_in", :to => "devise/sessions#new"
+  end
+  
   get "opinion/index"
   match "opinion/list" =>'opinion#list', :as =>:opinion_list
   # The priority is based upon order of creation:
@@ -55,7 +60,7 @@ Opinion::Application.routes.draw do
   resources :criticisms, :controller =>'opinion', :path =>'opinions'
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'opinion#index'
+   root :to => 'opinion#list'
 
   # See how all your routes lay out with "rake routes"
 
