@@ -52,14 +52,14 @@
               <li style="float:left;line-height:30px;">
               <%= link_to "Sign Out", sign_out_path, :class => 'btn btn-small btn-primary', :method => :delete, :title =>"Log Out"%></li>
             <% else %>
-              <li style='float:left;width:80px;'>
-                <%= link_to 'Sign In ', sign_in_path, :class => 'btn btn-small btn-primary' %></li>
+              <li style='float:left;width:220px;'>
+                <%= link_to 'Sign In to View Your Critiques', sign_in_path, :class => 'btn btn-small btn-primary' %></li>
               <li style='float:left;'>
-                <%= link_to 'Sign Up ', new_critique_receiver_registration_path, :class => 'btn btn-small btn-primary' %></li>
+                <%= link_to 'Sign Up to Be Criticized', new_critique_receiver_registration_path, :class => 'btn btn-small btn-primary' %></li>
             <% end %>
           </ul>
           <div class="container nav-collapse">
-            
+
           </div><!--/.nav-collapse -->
 
         </div>
