@@ -12,7 +12,7 @@ class CritiqueReceiver < ActiveRecord::Base
   has_many :criticisms
 
   def self.interested
-    self.all
+    self.order('full_name')
   end
 
   def name_with_email_and_department
