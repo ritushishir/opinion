@@ -1,13 +1,17 @@
 @charset "UTF-8";
+
 body {
   padding-top: 0px;
   background: white;
-  font-family: verdana;
-  }
+  font-family: 'Titillium Web', verdana;
+  font-size: 16px;
+}
+
+textarea, input, select, table, button, label, h1, h2, h3, h4 {
+  font-family: 'Titillium Web', verdana;
+}
 
 table {
-  font-size: 14px;
-  font-family: verdana;
   margin-top: 20px;
   margin-left: 50px;
   }
@@ -16,6 +20,16 @@ table .btn {
   font-size: 11px;
 }
 
+label{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+h4{
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 4px 4px 4px #ddd;
+}
 .content {
   padding: 0 20px; }
 
