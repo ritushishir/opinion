@@ -3,7 +3,7 @@ class CritiqueReceiver < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :full_name, :department
@@ -12,7 +12,7 @@ class CritiqueReceiver < ActiveRecord::Base
   has_many :criticisms
 
   def self.interested
-    self.order('full_name')
+    self.where(verified: true).order('full_name')
   end
 
   def name_with_email_and_department

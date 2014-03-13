@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416033617) do
+ActiveRecord::Schema.define(:version => 20130429032547) do
 
   create_table "criticisms", :force => true do |t|
     t.text     "comment"
@@ -37,8 +37,13 @@ ActiveRecord::Schema.define(:version => 20130416033617) do
     t.boolean  "disabled"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "confirmation_token"
+    t.string   "unconfirmed_email"
   end
 
+  add_index "critique_receivers", ["confirmation_token"], :name => "index_critique_receivers_on_confirmation_token", :unique => true
   add_index "critique_receivers", ["email"], :name => "index_critique_receivers_on_email", :unique => true
   add_index "critique_receivers", ["reset_password_token"], :name => "index_critique_receivers_on_reset_password_token", :unique => true
 
